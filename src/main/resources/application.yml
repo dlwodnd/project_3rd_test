@@ -71,3 +71,38 @@ file:
   dir: /home/download/
 server:
   port: 8080
+
+---
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:log4jdbc:mariadb://localhost:3306/project_jpa_test?allowMultiQueries=true
+    username: root
+    password: green502
+  data:
+    redis:
+      host: 192.168.0.144
+      port: 6379
+  config:
+    activate:
+      on-profile: projectJPA
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 1024MB
+
+file:
+  dir: /home/download/
+server:
+  port: 8080
+
+logging:
+  level:
+    jdbc:
+      sqlonly: off
+      sqltiming: info
+      resultsettable: info
+      audit: off
+      resultset: off
+      connection: off
